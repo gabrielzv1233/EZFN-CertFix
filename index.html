@@ -38,7 +38,7 @@
 <body>
     <h2>Simple fix to broken internet after using EZFN</h2>
     <p><strong>Explanation:</strong><br>
-    EZFN creates a proxy for your computer that may not disable if the launcher crashes. This tutorial will help you fix your internet by disabling the proxy.</p>
+    EZFN creates a proxy for your computer that may not disable if the launcher closes incorrectly/crashes. This tutorial will help you fix your internet by disabling the proxy.</p>
     
     <p><strong>Step 1:</strong> Press <code>Win + R</code> and paste the following command:</p>
     <pre><code><span style="color:#FF9492;">REG</span> ADD <span style="color:#ADDCFF;">"HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"</span> /v ProxyEnable /t REG_DWORD /d <span style="color:#ADDCFF;">0</span> /f</code></pre>
