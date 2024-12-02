@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EZFN Hybrid Cert fix</title>
+    <title>EZFN "breaking" intenet fix</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -33,45 +33,15 @@
         strong {
             color: #00d09c;
         }
-        a {
-            color: #00b7ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background-color: #2b2b2b;
-            margin-bottom: 0.5rem;
-            padding: 10px;
-            border-radius: 6px;
-        }
     </style>
 </head>
 <body>
-    <h2>How to fix broken internet after using EZFN Hybrid mode</h2>
-    <strong>Before we start</strong>, minor disclamer, this will likley prevent you from using EZFN Hybrid untill you add back the certificate<br>
+    <h2>Simple fix to broken intenet after using EZFN</h2>
     <p><strong>Explanation:</strong><br>
-    EZFN installs a certificate that can break your internet. I have no idea what causes this to break, but here's a fix:</p>
+    EZFN creates a proxy for your computer that may not disable if the launcher crashes. This tutorial will help you fix your internet by disabling the proxy.</p>
     
-    <ul>
-        <li><strong>Step 1:</strong> Press <code>Win + R</code> to open the run dialog and type <code>certmgr.msc</code>, then press Enter. This will open the certificate manager for Windows, allowing us to remove the installed certificate.</li>
-        <li><strong>Step 2:</strong> In the sidebar, find <code>Trusted Root Certification Authorities</code>, open it, then open the subfolder <code>Certificates</code>.</li>
-        <li><strong>Step 3:</strong> In the main window, find <code>EZFN - Hybrid (###)</code> (<code>###</code> will be some random numbers). You can make this easier by just pressing <code>E</code> after clicking in the main window until it highlights the right one.</li>
-        <li><strong>Step 4:</strong> Right-click on the certificate and press delete. Just to be sure, restart your PC, though sometimes it's not required.</li>
-    </ul>
-
-    <p><strong>Additional Note:</strong><br>
-    This should fix it, but may break EZFN for future use. I personally have never had this problem, so I'm not sure if EZFN will ask you to reinstall the certificate if you want to use Hybrid again. If it doesn't, and you want to use it again, reinstall EZFN. Otherwise (again, untested if this works; the previously mentioned fix does, and that's all I tested), instead of deleting the certificate, you can try:</p>
-
-    <ul>
-        <li>Right-click on the certificate, press <strong>Properties</strong>, and then press <strong>Disable all purposes for this certificate</strong>.</li>
-        <li>If you want to use EZFN Hybrid again later, press <strong>Enable all purposes for this certificate</strong>, and press <strong>Apply</strong> when done.</li>
-    </ul>
-    If you would like to provide any extra information or feedback, you can do so <a href="https://github.com/gabrielzv1233/EZFN-CertFix/issues">here</a> by creating an issue
+    <p><strong>Step 1:</strong> Press <code>Win + R</code> and paste the following command:</p>
+    <pre><code>REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 0 /f</code></pre>
+    <p>Press Enter, and that’s literally it! This should disable the proxy that EZFN creates and will not prevent you from using EZFN in the future. The command also works in CMD.</p>
 </body>
 </html>
