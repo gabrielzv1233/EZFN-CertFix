@@ -1,6 +1,6 @@
 ## Simple fix to broken internet after using EZFN
 **Explanation:**
-EZFN creates a proxy for your computer that may not disable if the launcher crashes. This tutorial will help you fix your internet by disabling the proxy.
+EZFN creates a proxy for your computer that may not disable if the launcher closes incorrectly/crashes. This tutorial will help you fix your internet by disabling the proxy.
 
 **Step 1:** Win + R and paste the following command: 
 ```batch
